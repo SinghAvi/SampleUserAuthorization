@@ -1,0 +1,21 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %a.navbar-brand{:href => root_path} My Project
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => root_path, style: 'border-bottom: none !important'} Home
+        %li
+          = link_to 'About Us'
+        %li
+          %a{:href => '#'} Contact Us
+      %ul.nav.navbar-nav.pull-right{style: "padding-top :7px"}
+        = form_for User.new, url: login_path, method: :get do |f|
+          .row
+            .col-sm-4
+              = f.email_field :email, {class: 'form-control', placeholder: 'Email Id', required: true}
+            .col-sm-4
+              = f.password_field :password, {class: 'form-control', placeholder: "Password", required: true}
+            .col-sm-4
+              = f.submit 'Log In', {class: 'form-control btn btn-info'}
